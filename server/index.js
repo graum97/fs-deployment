@@ -5,7 +5,15 @@ const path = require('path');
 const app = express();
 
 app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname, '../index.html'));
+    res.sendFile(path.join(__dirname, '.server/index.html'));
+});
+
+app.get('/js', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/main.js'));
+});
+
+app.get('/', function(req, res) {
+    res.sendFile(path.join(__dirname, '.public/index.css'));
 });
 
 const port = process.env.PORT || 5504;
